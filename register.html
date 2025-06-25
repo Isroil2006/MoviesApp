@@ -3,29 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8y+6b6f6b6f6b6f6b6f6b6f6b6f6b6f6b6"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
+  <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="#">Movies App</a>
         <div class="navbar-nav ms-auto">
-          <a
-            class="nav-link"
-            href="src/pages/auth/login.html"
-            data-bs-toggle="modal"
-            data-bs-target="#loginModal"
-            >Login</a
-          >
-          <a
-            class="nav-link"
-            href="#"
-            data-bs-toggle="modal"
-            data-bs-target="#registerModal"
-            >Register</a
-          >
+          <a class="nav-link" href="./login.html">Login</a>
+          <a class="nav-link" href="./register.html">Register</a>
         </div>
       </div>
     </nav>
+    <div class="container mt-5">
+      <div class="row justify-content-start">
+        <div class="col-md-6 col-lg-5">
+          <h2 class="mb-4 mt-4">Register</h2>
+          <form class="register-form" id="registerForm" autocomplete="off">
+            <div class="mb-3">
+              <label for="regName" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="regName"
+                name="name"
+                placeholder="Ismingizni kiriting"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="regEmail" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                name="email"
+                placeholder="Email manzilini kiriting"
+                required
+              />
+              <div id="regEmailError"></div>
+            </div>
+            <div class="mb-3">
+              <label for="regPassword" class="form-label">Password</label>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="regPassword"
+                  name="password"
+                  placeholder="Parolingizni kiriting"
+                  required
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="togglePassword"
+                >
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+              <div id="regPasswordError" class="text-danger"></div>
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Ro'yxatdan o'tish
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for password usage confirmation -->
+    <div
+      class="modal fade"
+      id="autoPasswordModal"
+      tabindex="-1"
+      aria-labelledby="autoPasswordModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="autoPasswordModalLabel">
+              Avtomatik parol
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Yopish"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Siz uchun avtomatik parol yaratildi. Ushbu paroldan foydalanasizmi?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="acceptAutoPassword"
+              data-bs-dismiss="modal"
+            >
+              Ha
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="declineAutoPassword"
+              data-bs-dismiss="modal"
+            >
+              Yo'q
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/ts/register.ts"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
