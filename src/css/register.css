@@ -46,7 +46,7 @@ input {
 
 #regEmailError,
 #regPasswordError {
-  color: #ffdddd;
+  color: #dc3545; /* Bootstrap text-danger rangi */
   font-size: 0.95em;
   margin-top: 4px;
 }

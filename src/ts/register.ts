@@ -32,6 +32,17 @@ function isValidPassword(password: string): boolean {
   return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
 }
 
+// Password generator function
+function generatePassword(length: number = 10): string {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|:;<>,.?/~";
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return password;
+}
+
 emailInput.addEventListener("input", () => {
   if (!emailInput.value) {
     emailError.textContent = "";
@@ -52,6 +63,19 @@ passwordInput.addEventListener("input", () => {
     passwordError.textContent = "";
   }
 });
+
+// Automate password generation when password input is focused or empty
+passwordInput.addEventListener("focus", () => {
+  if (!passwordInput.value) {
+    const generated = generatePassword(10);
+    passwordInput.value = generated;
+    passwordError.textContent = "";
+  }
+});
+
+// Make error message always red using Bootstrap class
+passwordError.classList.add("text-danger");
+emailError.classList.add("text-danger");
 
 registerForm.addEventListener("submit", function (e) {
   e.preventDefault();
