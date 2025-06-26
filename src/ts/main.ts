@@ -43,7 +43,6 @@ const pagination = document.querySelector("#pagination") as HTMLElement;
 const searchInput = document.querySelector("#searchInput") as HTMLInputElement;
 const categoryList = document.querySelector("#categoryList") as HTMLElement;
 
-// Jadvalni yangilash
 function renderMovies() {
   moviesTableBody.innerHTML = "";
 
@@ -72,7 +71,6 @@ function renderMovies() {
   renderPagination();
 }
 
-// Sahifalash
 function renderPagination() {
   pagination.innerHTML = "";
   const pageCount = Math.ceil(filteredMovies.length / pageSize);
@@ -99,7 +97,6 @@ function renderPagination() {
   pagination.appendChild(nav);
 }
 
-// Kategoriya bo‘yicha filtrlash
 categoryList.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.tagName === "BUTTON") {
@@ -119,7 +116,6 @@ categoryList.addEventListener("click", (e) => {
   }
 });
 
-// Qidiruv
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.toLowerCase();
   filteredMovies = movies.filter((m) => m.title.toLowerCase().includes(query));
@@ -127,7 +123,6 @@ searchInput.addEventListener("input", () => {
   renderMovies();
 });
 
-// O‘chirish funksiyasi
 (window as any).deleteMovie = function (id: number) {
   const index = movies.findIndex((m) => m.id === id);
   if (index !== -1) {
@@ -137,10 +132,8 @@ searchInput.addEventListener("input", () => {
   }
 };
 
-// Kapital harfga aylantirish
 function capitalize(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-// Boshlanish
 renderMovies();

@@ -26,6 +26,9 @@
   font-family: monospace;
   text-align: center;
   border: 1px solid darkblue;
+  padding: 10px;
+  font-size: 15px;
+  text-align: start;
 }
 
 .pasword {
@@ -41,6 +44,9 @@
   font-family: monospace;
   text-align: center;
   border: 1px solid darkblue;
+  padding: 10px;
+  font-size: 15px;
+  text-align: start;
 }
 
 .loginbtn {
@@ -54,10 +60,10 @@
   color: aliceblue;
 }
 
-.loginbtn:hover{
-    background-color: aqua;
+.loginbtn:hover {
+  background-color: aqua;
 }
 
-.loginbtn:active{
-    background-color: black;
+.loginbtn:active {
+  background-color: black;
 }
